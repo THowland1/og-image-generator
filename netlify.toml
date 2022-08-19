@@ -1,0 +1,6 @@
+[functions]
+  directory = "netlify/functions"
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/generate-og-image?playlistId=playlistId"
+  status = 200
