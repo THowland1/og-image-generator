@@ -2,5 +2,5 @@
   directory = "netlify/functions"
 [[redirects]]
   from = "/"
-  to = "/.netlify/functions/generate-og-image?playlistId=playlistId"
+  to = "/.netlify/functions/generate-og-image-new?playlistId=playlistId"
   status = 200
