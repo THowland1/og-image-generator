@@ -8,7 +8,7 @@ const svg = `<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-boot
 
 export const handler: Handler = async (event, context) => {
   let img = sharp(Buffer.from(svg));
-  let resized = img.resize(128);
+  let resized = img.resize(1200, 630);
   let dgyuj = await resized.toBuffer();
 
   const response = {

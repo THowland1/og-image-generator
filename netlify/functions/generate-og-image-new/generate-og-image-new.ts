@@ -1,22 +1,8 @@
-import { Handler } from '@netlify/functions';
-import { getSpotifyPlaylist } from '../../utils/get-spotify-playlist';
-import { getSpotifyToken } from '../../utils/get-spotify-token';
-
 import chromium from 'chrome-aws-lambda';
-const puppeteer = require('puppeteer-core');
-
-async function getPlaylistName(playlistId: string) {
-  const authToken = await getSpotifyToken();
-  const playlist = await getSpotifyPlaylist(playlistId, authToken.access_token);
-  return playlist.name;
-}
+import puppeteer from 'puppeteer-core';
 
 export const handler: Handler = async (event, context) => {
-  const playlistId = event.queryStringParameters['playlistId'];
-  let playlistName = '';
-  try {
-    playlistName = await getPlaylistName(playlistId);
-  } catch {}
+  const playlistName = event.queryStringParameters['playlistId'];
 
   const browser = await puppeteer.launch({
     args: [],
