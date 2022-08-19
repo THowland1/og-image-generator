@@ -3,12 +3,12 @@ import puppeteer from 'puppeteer-core';
 
 export const handler: Handler = async (event, context) => {
   const playlistName = event.queryStringParameters['playlistId'];
+  throw new Error(await chromium.executablePath);
 
   const browser = await puppeteer.launch({
     args: [],
-    executablePath:
-      process.env.CHROME_EXECUTABLE_PATH || (await chromium.executablePath),
-    headless: true,
+    executablePath: await chromium.executablePath,
+    headless: false,
   });
 
   const page = await browser.newPage();
